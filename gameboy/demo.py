@@ -1,6 +1,9 @@
-#!/usr/bin/env python3
+import random
+from gameboy import GameBoy
 
-from pyboy import PyBoy, WindowEvent
-pyboy = PyBoy('pokemon-rosso.gb', window_scale=3)
-while not pyboy.tick():
-    pass
+gb = GameBoy('pokemon-rosso.gb', window_scale=3, sound=False)
+while not gb.tick():
+    buttons = ["a", "b", "start", "select"]
+    random_button = random.choice(buttons)
+    print(f"Premo {random_button}")
+    gb.press(random_button)
